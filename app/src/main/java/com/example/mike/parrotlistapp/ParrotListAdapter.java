@@ -20,13 +20,13 @@ public class ParrotListAdapter extends ArrayAdapter<Parrot> {
     @Override
     public View getView(int position, View listItemView, ViewGroup parent){
         if (listItemView == null){
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.activity_parrot_list, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.parrots_item, parent, false);
         }
 
         Parrot currentParrot = getItem(position);
 
-        TextView ranking = ((TextView) listItemView.findViewById(R.id.rankingTextViewId));
-        ranking.setText(currentParrot.getRanking().toString());
+        TextView rankingText = ((TextView) listItemView.findViewById(R.id.rankingTextViewId));
+        rankingText.setText(currentParrot.getRanking().toString());
 
         TextView commonName = ((TextView) listItemView.findViewById(R.id.commonNameTextViewId));
         commonName.setText(currentParrot.getCommonName());
@@ -36,6 +36,8 @@ public class ParrotListAdapter extends ArrayAdapter<Parrot> {
 
         TextView colour = ((TextView) listItemView.findViewById(R.id.colourTextViewId));
         colour.setText(currentParrot.getColour());
+
+        listItemView.setTag(currentParrot);
 
         return listItemView;
     }

@@ -3,6 +3,7 @@ package com.example.mike.parrotlistapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.ExpandedMenuView;
+import android.view.View;
 import android.widget.ListView;
 
 import java.lang.reflect.Array;
@@ -20,7 +21,11 @@ public class ParrotListActivity extends AppCompatActivity {
 
         ParrotListAdapter parrotAdapter = new ParrotListAdapter(this, list);
 
-        ListView listView = (((ListView) findViewById(R.id.list)));
+        ListView listView = (findViewById(R.id.list));
         listView.setAdapter(parrotAdapter);
+    }
+
+    public void onListItemClick(View listItem){
+        Parrot parrot = ((Parrot) listItem.getTag());
     }
 }
